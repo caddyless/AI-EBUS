@@ -1,0 +1,105 @@
+
+search_mode: combination
+
+repeat_time: 1
+
+search_param:
+
+  k-fold:
+    - 5
+
+  batch_times:
+    - 1
+
+  batch_size:
+    - 16
+
+  resample:
+    - -1
+
+  lr_times:
+    - 100
+
+  lr:
+    - 0.000005
+
+  final_lr:
+    - 0.000001
+
+  epoch:
+    - 15
+
+  warm:
+    - 2
+
+  last_e:
+    - 2
+
+  select_fold:
+    - 4
+
+  from_scratch:
+    - false
+
+  model_save_folder:
+    - ../Final-Model/retrospective-results/
+
+  dataset_path:
+    - ../raw-data/tidy-tumor-data/20210111-tumor.dataset
+
+  database_path:
+    - ../raw-data/tidy-tumor-data/20210111-tumor-database.h5
+
+  allocate_file_path:
+    - ../raw-data/tumor_allocate_5fold.txt
+
+  fusion_way:
+    - weighted_concat
+
+  clf_way:
+    - linear
+
+  datatype_arrange:
+    - B: raw-img
+      F: ROI
+      E: elastic-hist
+
+  e_params:
+
+    - extractor: mlp
+      extractor_param:
+        in_channels: 512
+        out_channels: 256
+        hidden:
+          - 384
+      aggregator: anchor
+      aggregator_param:
+        num_cluster: 8
+        regular: 1
+        max_type: soft
+
+  f_params:
+    - extractor: seincept
+      extractor_param:
+        in_channel: 3
+        level: 2
+        attention: GateAttention
+      aggregator: nextvlad
+      aggregator_param:
+        num_cluster: 8
+        lmd: 8
+
+  b_params:
+    - extractor: seincept
+      extractor_param:
+        in_channel: 1
+        level: 2
+        attention: GateAttention
+      aggregator: anchor
+      aggregator_param:
+        num_cluster: 8
+        regular: 1
+        max_type: sparse
+
+  remark:
+    - different params chase for SOTA

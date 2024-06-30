@@ -1,0 +1,93 @@
+
+search_mode: combination
+
+repeat_time: 1
+
+search_param:
+
+  data_way:
+    - full-train
+
+  k-fold:
+    - 1
+
+  batch_times:
+    - 4
+
+  batch_size:
+    - 12
+
+  lr:
+    - 0.00025
+
+  final_lr:
+    - 0.000125
+
+  epoch:
+    - 40
+
+  warm:
+    - 10
+
+  last_e:
+    - 10
+
+  dataset_path:
+    - ../data/video/mm-ete/20201216.dataset
+
+  database_path:
+    - ../data/video/mm-ete/20201216-database.h5
+
+  allocate_file_path:
+    - ../raw-data/20201216-mmv-5-fold.txt
+
+  fusion_way:
+    - gate_fusion
+
+  clf_way:
+    - linear
+
+  datatype_arrange:
+    - B: raw-img
+      F: ROI
+      E: elastic-hist
+
+  e_params:
+
+    - extractor: mlp
+      extractor_param:
+        in_channels: 512
+        out_channels: 256
+        hidden:
+          - 384
+      aggregator: anchor
+      aggregator_param:
+        num_cluster: 8
+        regular: 1
+        max_type: soft
+
+  f_params:
+    - extractor: seincept
+      extractor_param:
+        in_channel: 3
+        level: 2
+        attention: GateAttention
+      aggregator: nextvlad
+      aggregator_param:
+        num_cluster: 8
+        lmd: 8
+
+  b_params:
+    - extractor: seincept
+      extractor_param:
+        in_channel: 1
+        level: 2
+        attention: GateAttention
+      aggregator: anchor
+      aggregator_param:
+        num_cluster: 8
+        regular: 1
+        max_type: sparse
+
+  remark:
+    - total train

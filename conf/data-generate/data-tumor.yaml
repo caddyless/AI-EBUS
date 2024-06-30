@@ -1,0 +1,23 @@
+
+# Data folder generation part
+need_data_folder: true
+data_folder_param:
+  generate_dir: ../raw-data/tidy-tumor-data/Tumor-20210111
+  tidy_dir: ../raw-data/tidy-tumor-data/20201021肿块
+  excel_file: ../raw-data/Tumor-20210111.xlsx
+
+  mode: EBF
+  hospital: shanghai
+  from_scratch: false
+  num_b: 30
+  max_batch_size: 16
+
+# Dataset generation part
+need_dataset: true
+dataset_param:
+  mode: BEF
+  from_scratch: true
+  database_path: ../raw-data/tidy-tumor-data/20210111-tumor-database.h5
+  data_folder: ../raw-data/tidy-tumor-data/Tumor-20210111
+  excel_path: ../raw-data/Tumor-20210111.xlsx
+  dataset_save_path: ../raw-data/tidy-tumor-data/20210111-tumor.dataset

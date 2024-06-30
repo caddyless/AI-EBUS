@@ -1,0 +1,39 @@
+
+search_mode: pair
+
+repeat_time: 1
+
+search_param:
+  batch_size:
+    - 12
+    - 12
+
+  clf_way:
+    - linear
+    - mlp
+
+  datatype_arrange:
+    - B: raw-img
+      F: raw-img
+      E: elastic-hist
+
+    - B: raw-img
+      F: raw-img
+      E: elastic-hist
+
+  e_params:
+    - extractor: none
+      extractor_param:
+        in_channel: 512
+      aggregator: average
+      aggregator_param:
+
+    - extractor: none
+      extractor_param:
+        in_channel: 512
+      aggregator: average
+      aggregator_param:
+
+  remark:
+    - linear classification
+    - mlp classification

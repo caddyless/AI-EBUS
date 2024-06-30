@@ -1,0 +1,23 @@
+# This template is used for generate.py file. It contains all parameters you can used to control the generating process
+
+# Data folder generation part
+need_data_folder: true
+data_folder_param:
+  generate_dir: ../data/video/mm-ete/20201123
+  tidy_dir: Null
+  excel_file: Null
+
+  mode: EBF
+  hospital: shanghai
+  from_scratch: false
+  num_b: 30
+  max_batch_size: 16
+
+# Dataset generation part
+need_dataset: false
+dataset_param:
+  mode: BEF
+  database_path: ../data/video/mm-ete/20201124-validation-database.h5
+  data_folder: ../data/video/mm-ete/20201120-validation
+  excel_path: ../raw-data/validation-table.xlsx
+  dataset_save_path: ../data/video/mm-ete/20201124-validation.dataset

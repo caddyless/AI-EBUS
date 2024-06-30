@@ -1,0 +1,250 @@
+# Search for different aggregator in different modes
+
+search_mode: combination
+
+repeat_time: 1
+
+search_param:
+
+  is_validate:
+    - false
+
+  batch_size:
+    - 2
+
+  batch_times:
+    - 8
+
+  lr:
+    - 0.00025
+
+  final_lr:
+    - 0.000125
+
+  epoch:
+    - 50
+
+  warm:
+    - 10
+
+  last_e:
+    - 10
+
+  mode:
+    - B
+
+  datatype_arrange:
+    - B: raw-img
+    - B: ROI
+
+  dataset_path:
+    - ../data/video/mm-ete/20201216.dataset
+
+  database_path:
+    - ../data/video/mm-ete/20201216-database.h5
+
+  allocate_file_path:
+    - ../raw-data/20201216-mmv-5-fold.txt
+
+  record_file_path:
+    - ../record/20201226-B-ablation-study.csv
+
+  remark:
+    - Ablation study for B mode
+
+  b_params:
+    # baseline
+    - extractor: resnet
+      extractor_param:
+        in_channel: 1
+        level: 2
+      aggregator: average
+      aggregator_param:
+#
+#    - extractor: seincept
+#      extractor_param:
+#        in_channel: 1
+#        level: 2
+#        attention: normal
+#        channel_attention: fca
+#      aggregator: average
+#      aggregator_param:
+#
+#    - extractor: seincept
+#      extractor_param:
+#        in_channel: 1
+#        level: 2
+#        attention: LinearAttention
+#        channel_attention: fca
+#      aggregator: average
+#      aggregator_param:
+#
+#    - extractor: seincept
+#      extractor_param:
+#        in_channel: 1
+#        level: 2
+#        attention: GateAttention
+#        channel_attention: fca
+#      aggregator: average
+#      aggregator_param:
+
+#
+#    - extractor: seincept
+#      extractor_param:
+#        in_channel: 1
+#        level: 2
+#        attention: normal
+#      aggregator: average
+#      aggregator_param:
+#
+#    - extractor: seincept
+#      extractor_param:
+#        in_channel: 1
+#        level: 2
+#        attention: GateAttention
+#      aggregator: average
+#      aggregator_param:
+#
+#    - extractor: seincept
+#      extractor_param:
+#        in_channel: 1
+#        level: 2
+#        attention: LinearAttention
+#      aggregator: average
+#      aggregator_param:
+#
+#    - extractor: seincept
+#      extractor_param:
+#        in_channel: 1
+#        level: 2
+#        attention: normal
+#      aggregator: attention
+#      aggregator_param:
+#
+#    - extractor: seincept
+#      extractor_param:
+#        in_channel: 1
+#        level: 2
+#      aggregator: netvlad
+#      aggregator_param:
+#        num_cluster: 8
+#        reduction: 8
+#
+#    - extractor: seincept
+#      extractor_param:
+#        in_channel: 1
+#        level: 2
+#      aggregator: nextvlad
+#      aggregator_param:
+#        num_cluster: 8
+#        lmd: 8
+#
+#    - extractor: seincept
+#      extractor_param:
+#        in_channel: 1
+#        level: 2
+#        attention: normal
+#      aggregator: anchor
+#      aggregator_param:
+#        num_cluster: 4
+#        regular: 0
+#
+#    - extractor: seincept
+#      extractor_param:
+#        in_channel: 1
+#        level: 2
+#        attention: normal
+#      aggregator: anchor
+#      aggregator_param:
+#        num_cluster: 4
+#        regular: 1
+#
+#    - extractor: seincept
+#      extractor_param:
+#        in_channel: 1
+#        level: 2
+#        attention: normal
+#      aggregator: anchor
+#      aggregator_param:
+#        num_cluster: 4
+#        regular: 3
+#
+#    - extractor: seincept
+#      extractor_param:
+#        in_channel: 1
+#        level: 2
+#        attention: normal
+#      aggregator: anchor
+#      aggregator_param:
+#        num_cluster: 8
+#        regular: 1
+#
+#    - extractor: seincept
+#      extractor_param:
+#        in_channel: 1
+#        level: 2
+#        attention: normal
+#      aggregator: anchor
+#      aggregator_param:
+#        num_cluster: 16
+#        regular: 1
+#
+#    - extractor: seincept
+#      extractor_param:
+#        in_channel: 1
+#        level: 2
+#        attention: normal
+#      aggregator: anchor
+#      aggregator_param:
+#        num_cluster: 32
+#        regular: 1
+#
+#    - extractor: seincept
+#      extractor_param:
+#        in_channel: 1
+#        level: 2
+#        attention: normal
+#      aggregator: subspace
+#      aggregator_param:
+#        num_space: 4
+#        reduction: 4
+#
+#    - extractor: seincept
+#      extractor_param:
+#        in_channel: 1
+#        level: 2
+#        attention: normal
+#      aggregator: subspace
+#      aggregator_param:
+#        num_space: 8
+#        reduction: 4
+#
+#    - extractor: seincept
+#      extractor_param:
+#        in_channel: 1
+#        level: 2
+#        attention: normal
+#      aggregator: subspace
+#      aggregator_param:
+#        num_space: 8
+#        reduction: 8
+#
+#    - extractor: seincept
+#      extractor_param:
+#        in_channel: 1
+#        level: 2
+#        attention: normal
+#      aggregator: subspace
+#      aggregator_param:
+#        num_space: 16
+#        reduction: 4
+#
+#    - extractor: seincept
+#      extractor_param:
+#        in_channel: 1
+#        level: 2
+#        attention: normal
+#      aggregator: subspace
+#      aggregator_param:
+#        num_space: 32
+#        reduction: 4

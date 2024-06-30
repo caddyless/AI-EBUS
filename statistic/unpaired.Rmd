@@ -1,0 +1,64 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+library(pROC)
+
+
+file_path = "E:\\OneDrive - sjtu.edu.cn\\Submission\\Medicasl-Video\\raw-data\\Perspective-Result.csv"
+
+data = read.csv(file_path)
+
+y_true = as.integer(data$BM)
+hospital_column = data$Hospital
+mode = c('Fusion', 'B', 'F', 'E')
+hospital = c('shanghai', 'hangzhou', 'anhui', 'henan', 'yantai', 'out-shanghai', 'all')
+
+obtain_true_score = function(h_name, y_true, y_score, hospital){
+  if(h_name == 'out-shanghai'){
+    new_true = y_true[which(hospital != 'shanghai')]
+    new_score = y_score[which(hospital != 'shanghai')]
+  }
+  else if (h_name == 'all'){
+    new_true = y_true
+    new_score = y_score
+  }
+  else{
+    new_true = y_true[which(hospital == h_name)]
+    new_score = y_score[which(hospital == h_name)]
+  }
+  result = list(label=new_true, score=new_score)
+  return(result)
+}
+
+for (i in 1:4){
+  m = mode[i]
+  for (j in 1:6){
+    for (k in (j + 1):7){
+      h1 = hospital[j]
+      h2 = hospital[k]
+      y_score = data[[paste0(m, '.score')]]
+      result1 = obtain_true_score(h1, y_true, y_score, hospital_column)
+      roc1 = roc(result1$label, result1$score)
+      result2 = obtain_true_score(h2, y_true, y_score, hospital_column)
+      roc2 = roc(result2$label, result2$score)
+      result = roc.test(roc1, roc2, method = 'bootstrap', paired = FALSE, boot.n = 2000)
+      out_content = paste('Mode ', m, ' ', h1, '-', h2, ' p-value is ', result$p.value, ' \n') 
+      print(out_content)
+      
+    }
+  }
+}
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.

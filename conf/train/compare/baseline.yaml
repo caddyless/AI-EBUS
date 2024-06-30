@@ -1,0 +1,11 @@
+
+search_mode: pair
+
+repeat_time: 1
+
+search_param:
+  batch_size:
+    - 4
+
+  remark:
+    - Baseline

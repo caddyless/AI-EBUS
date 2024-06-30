@@ -1,0 +1,22 @@
+
+# Data folder generation part
+need_data_folder: true
+data_folder_param:
+  mode: BFE
+  generate_dir: ../data/video/mm-ete/20210107-whole-validation
+  tidy_dir: ../raw-data/tidy-data
+  excel_file: ../raw-data/20210128-Test-Table.xlsx
+
+  from_scratch: false
+  num_b: 30
+  max_batch_size: 16
+
+# Dataset generation part
+need_dataset: true
+dataset_param:
+  mode: BFE
+  from_scratch: false
+  database_path: ../data/video/mm-ete/20210107-validation-database.h5
+  data_folder: ../data/video/mm-ete/20210107-whole-validation
+  excel_path: ../raw-data/20210128-Test-Table.xlsx
+  dataset_save_path: ../data/video/mm-ete/20210128-validation.dataset

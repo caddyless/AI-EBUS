@@ -1,0 +1,21 @@
+
+subset: true
+result_validate: false
+basic_param:
+  model_dir: ../Final-Model/classification-2020-12-28 17:11:29/
+  metric: epoch
+  dataset_path: /home/lijin/extern-disks/sandisk2/TBNA-tumor/20210111-tumor.dataset
+  database_path: /home/lijin/extern-disks/sandisk2/TBNA-tumor/20210111-tumor-database.h5
+  k_fold: 5
+
+#  dataset_path: /home/lijin/extern-disks/sandisk2/TBNA-data/20201125.dataset
+#  database_path: /home/lijin/extern-disks/sandisk2/TBNA-data/20201125-database.h5
+#  dataset_path: ../data/video/mm-ete/20201025-mmv.dataset
+#  database_path: ../data/video/mm-ete/20201025-mmv-database.h5
+
+parse_feature: false
+parse_feature_param:
+  feature_dir: ../data/20201126-all-save_feature
+  writer_dir: ../data/all-tensorboard_writer
+
+validate: true

@@ -1,0 +1,159 @@
+# Search for different aggregator
+
+search_mode: pair
+
+repeat_time: 1
+
+search_param:
+  batch_size:
+    - 8
+    - 8
+    - 8
+    - 8
+    - 8
+
+  b_params:
+    - extractor: seincept
+      extractor_param:
+        in_channel: 1
+        level: 2
+        attention: normal
+      aggregator: anchor
+      aggregator_param:
+        num_cluster: 8
+
+    - extractor: seincept
+      extractor_param:
+        in_channel: 1
+        level: 2
+        attention: normal
+      aggregator: netvlad
+      aggregator_param:
+        num_cluster: 8
+        reduction: 8
+
+    - extractor: seincept
+      extractor_param:
+        in_channel: 1
+        level: 2
+        attention: normal
+      aggregator: nextvlad
+      aggregator_param:
+        num_cluster: 8
+
+    - extractor: seincept
+      extractor_param:
+        in_channel: 1
+        level: 2
+        attention: normal
+      aggregator: subspace
+      aggregator_param:
+        num_space: 8
+        reduction: 8
+
+    - extractor: seincept
+      extractor_param:
+        in_channel: 1
+        level: 2
+        attention: normal
+      aggregator: attention
+      aggregator_param:
+
+  f_params:
+    - extractor: seincept
+      extractor_param:
+        in_channel: 3
+        level: 2
+        attention: normal
+      aggregator: attention
+      aggregator_param:
+
+    - extractor: seincept
+      extractor_param:
+        in_channel: 3
+        level: 2
+        attention: normal
+      aggregator: attention
+      aggregator_param:
+
+    - extractor: seincept
+      extractor_param:
+        in_channel: 3
+        level: 2
+        attention: normal
+      aggregator: attention
+      aggregator_param:
+
+    - extractor: seincept
+      extractor_param:
+        in_channel: 3
+        level: 2
+        attention: normal
+      aggregator: attention
+      aggregator_param:
+
+    - extractor: seincept
+      extractor_param:
+        in_channel: 3
+        level: 2
+        attention: normal
+      aggregator: attention
+      aggregator_param:
+
+  e_params:
+    - extractor: none
+      extractor_param:
+        in_channel: 512
+      aggregator: anchor
+      aggregator_param:
+        num_cluster: 8
+
+    - extractor: none
+      extractor_param:
+        in_channel: 512
+      aggregator: netvlad
+      aggregator_param:
+        num_cluster: 8
+        reduction: 8
+
+    - extractor: none
+      extractor_param:
+        in_channel: 512
+      aggregator: nextvlad
+      aggregator_param:
+        num_cluster: 8
+
+    - extractor: none
+      extractor_param:
+        in_channel: 512
+      aggregator: subspace
+      aggregator_param:
+        num_space: 8
+        reduction: 8
+
+    - extractor: none
+      extractor_param:
+        in_channel: 512
+      aggregator: attention
+      aggregator_param:
+
+  datatype_arrange:
+    - B: raw-img
+      F: raw-img
+      E: elastic-hist
+
+    - B: raw-img
+      F: raw-img
+      E: elastic-hist
+
+    - B: raw-img
+      F: raw-img
+      E: elastic-hist
+
+    - B: raw-img
+      F: raw-img
+      E: elastic-hist
+
+    - B: raw-img
+      F: raw-img
+      E: elastic-hist

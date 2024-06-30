@@ -1,0 +1,22 @@
+
+# Data folder generation part
+need_data_folder: true
+data_folder_param:
+  mode: F
+  generate_dir: ../data/video/mm-ete/20201120-validation
+  tidy_dir: ../raw-data/independent-validation
+  excel_file: ../raw-data/validation-table.xlsx
+
+  hospital: henan
+  from_scratch: false
+  num_b: 30
+  max_batch_size: 16
+
+# Dataset generation part
+need_dataset: true
+dataset_param:
+  mode: BEF
+  database_path: ../data/video/mm-ete/20201126-validation-database.h5
+  data_folder: ../data/video/mm-ete/20201120-validation
+  excel_path: ../raw-data/validation-table.xlsx
+  dataset_save_path: ../data/video/mm-ete/20201126-validation.dataset

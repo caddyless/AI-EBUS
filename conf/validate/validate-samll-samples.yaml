@@ -1,0 +1,17 @@
+result_validate: false
+subset: true
+
+basic_param:
+  model_dir: ../task-checkpoint/video/classification-2021-03-10 04:33:32/
+  metric: epoch
+  database_path: ../data/video/mm-ete/20210107-validation-database.h5
+  dataset_path: ../data/video/mm-ete/20210128-validation.dataset
+#  dataset_path: /home/lijin/extern-disks/sandisk2/TBNA-data/20201125.dataset
+#  database_path: /home/lijin/extern-disks/sandisk2/TBNA-data/20201125-database.h5
+
+parse_feature: false
+parse_feature_param:
+  feature_dir: ../data/20201126-all-save_feature
+  writer_dir: ../data/all-tensorboard_writer
+
+validate: true

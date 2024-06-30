@@ -1,0 +1,39 @@
+
+search_mode: pair
+
+repeat_time: 1
+
+search_param:
+  batch_size:
+    - 12
+    - 12
+
+  fusion_way:
+    - gate_fusion
+    - weighted_concat
+
+  datatype_arrange:
+    - B: raw-img
+      F: raw-img
+      E: elastic-hist
+
+    - B: raw-img
+      F: raw-img
+      E: elastic-hist
+
+  e_params:
+    - extractor: none
+      extractor_param:
+        in_channel: 512
+      aggregator: average
+      aggregator_param:
+
+    - extractor: none
+      extractor_param:
+        in_channel: 512
+      aggregator: average
+      aggregator_param:
+
+  remark:
+    - Elastic gate fusion
+    - Elastic weight concat

@@ -1,0 +1,89 @@
+# The baseline params
+
+# macro params
+mode: BEF
+k-fold: 5
+num_class: 2
+is_parallel: true
+data_way: five-fold-without-validate
+
+# training scheme
+epoch: 50
+lr: 0.001
+warm: 5
+last_e: 5
+final_lr: 0.0005
+batch_size: 4
+batch_times: 1
+
+# network hyper parameter
+fusion_way: concat
+clf_way: linear
+weights:
+  E: 1.0
+  B: 1.0
+  F: 1.0
+  C: 1.0
+  Fusion: 1.5
+
+b_params:
+  extractor: seincept
+  extractor_param:
+    in_channel: 1
+    level: 2
+    attention: normal
+  aggregator: average
+  aggregator_param:
+
+c_params:
+  extractor: seincept
+  extractor_param:
+    in_channel: 1
+    level: 2
+    attention: normal
+  aggregator: average
+  aggregator_param:
+
+f_params:
+  extractor: seincept
+  extractor_param:
+    in_channel: 3
+    level: 2
+    attention: normal
+  aggregator: average
+  aggregator_param:
+
+e_params:
+  extractor: seincept
+  extractor_param:
+    in_channel: 3
+    level: 2
+    attention: normal
+  aggregator: average
+  aggregator_param:
+
+# dataset hyper parameter
+normalize: true
+datatype_arrange:
+  B: raw-img
+  F: raw-img
+  E: elastic
+
+# file path
+dataset_path: ../data/video/mm-ete/20201129-lymph-1044.dataset
+database_path: ../data/video/mm-ete/20201129-lymph-1044.h5
+allocate_file_path: ../raw-data/20201013-mmv-5-fold.txt
+record_file_path: ../record/result.csv
+
+# record param
+remark: 'Baseline'
+metrics:
+- F-score
+- AUC
+- Accuracy
+- epoch
+record_param:
+- mode
+- weights
+- num_e_anchor
+- num_b_anchor

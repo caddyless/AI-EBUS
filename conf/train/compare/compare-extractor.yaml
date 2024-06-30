@@ -1,0 +1,97 @@
+# Search for different aggregator
+
+search_mode: pair
+
+repeat_time: 1
+
+search_param:
+  batch_size:
+    - 12
+    - 8
+    - 8
+
+  b_params:
+    - extractor: resnet
+      extractor_param:
+        in_channel: 1
+        level: 2
+      aggregator: average
+      aggregator_param:
+
+    - extractor: seincept
+      extractor_param:
+        in_channel: 1
+        level: 1
+        attention: GateAttention
+      aggregator: average
+      aggregator_param:
+
+    - extractor: seincept
+      extractor_param:
+        in_channel: 1
+        level: 1
+        attention: LinearAttention
+      aggregator: average
+      aggregator_param:
+
+  f_params:
+    - extractor: resnet
+      extractor_param:
+        in_channel: 3
+        level: 2
+      aggregator: average
+      aggregator_param:
+
+    - extractor: seincept
+      extractor_param:
+        in_channel: 3
+        level: 2
+        attention: GateAttention
+      aggregator: average
+      aggregator_param:
+
+    - extractor: seincept
+      extractor_param:
+        in_channel: 3
+        level: 2
+        attention: LinearAttention
+      aggregator: average
+      aggregator_param:
+
+  e_params:
+    - extractor: none
+      extractor_param:
+        in_channel: 512
+      aggregator: average
+      aggregator_param:
+
+    - extractor: none
+      extractor_param:
+        in_channel: 512
+      aggregator: average
+      aggregator_param:
+
+    - extractor: none
+      extractor_param:
+        in_channel: 512
+      aggregator: average
+      aggregator_param:
+
+  datatype_arrange:
+    - B: raw-img
+      F: raw-img
+      E: elastic-hist
+
+    - B: raw-img
+      F: raw-img
+      E: elastic-hist
+
+    - B: raw-img
+      F: raw-img
+      E: elastic-hist
+
+
+  remark:
+    - resnet
+    - seincept-GateAttention
+    - seincept-LinearAttention

@@ -1,0 +1,99 @@
+
+search_mode: pair
+
+repeat_time: 1
+
+search_param:
+  batch_size:
+    - 8
+    - 2
+    - 2
+    - 8
+    - 8
+    - 8
+    - 8
+
+  datatype_arrange:
+    - B: raw-img
+      F: raw-img
+      E: elastic-hist
+
+    - B: raw-img
+      F: raw-img
+      E: elastic
+
+    - B: raw-img
+      F: raw-img
+      E: ROI
+
+    - B: raw-img
+      F: raw-img
+      E: ROI-hist
+
+    - B: ROI
+      F: raw-img
+      E: elastic-hist
+
+    - B: raw-img
+      F: ROI
+      E: elastic-hist
+
+    - B: ROI
+      F: ROI
+      E: elastic-hist
+
+  e_params:
+    - extractor: none
+      extractor_param:
+        in_channel: 512
+      aggregator: average
+      aggregator_param:
+
+    - extractor: seincept
+      extractor_param:
+        in_channel: 3
+        level: 3
+        attention: normal
+      aggregator: average
+      aggregator_param:
+
+    - extractor: seincept
+      extractor_param:
+        in_channel: 3
+        level: 3
+        attention: normal
+      aggregator: average
+      aggregator_param:
+
+    - extractor: none
+      extractor_param:
+        in_channel: 512
+      aggregator: average
+      aggregator_param:
+
+    - extractor: none
+      extractor_param:
+        in_channel: 512
+      aggregator: average
+      aggregator_param:
+
+    - extractor: none
+      extractor_param:
+        in_channel: 512
+      aggregator: average
+      aggregator_param:
+
+    - extractor: none
+      extractor_param:
+        in_channel: 512
+      aggregator: average
+      aggregator_param:
+
+  remark:
+    - Elastic Histogram
+    - Elastic Image
+    - Elastic ROI
+    - Elastic ROI Histogram
+    - B ROI
+    - F ROI
+    - BF ROI
